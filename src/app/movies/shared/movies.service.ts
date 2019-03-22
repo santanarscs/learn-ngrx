@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class MoviesService {
 
   getAll() {
     return this.http.get(`http://localhost:3000/movies`).pipe(
+      delay(5000),
       map((data: any[]) => {
         const dataResponse = Object.assign({}, {
           movies: [...data],
