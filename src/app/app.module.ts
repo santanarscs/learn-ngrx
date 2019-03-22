@@ -9,6 +9,8 @@ import { counterReducer } from './counter.reducer';
 import { ScoreboardModule } from './scoreboard/scoreboard.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { MoviesModule } from './movies/movies.module';
+import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,11 +19,14 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({count: counterReducer}), ScoreboardModule,
+    StoreModule.forRoot({count: counterReducer}),
+    ScoreboardModule,
+    MoviesModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

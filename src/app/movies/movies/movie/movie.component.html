@@ -1,0 +1,7 @@
+<h2>Movies Data</h2>
+<ul>
+  <li *ngFor="let movie of (movies$ | async).movies">
+    {{movie.title}} ( {{movie.description}} )
+  </li>
+</ul>
+<span>Total movies: {{(movies$ | async).totalCount}}</span>
