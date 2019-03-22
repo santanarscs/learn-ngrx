@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { LoadAllAction, CreateAction, RemoveAction } from '../../movies.actions';
-
+import { getMoviesState } from '../../movies.reducer';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -10,12 +11,18 @@ import { LoadAllAction, CreateAction, RemoveAction } from '../../movies.actions'
 })
 export class MovieComponent implements OnInit {
   movies$: Observable<any>;
+  totalCount$: Observable<any>;
+  isLoading$: Observable<any>;
   title: string
   movie = {
     title: '',
     description: ''
   }
-  constructor(private store: Store<any>) { this.movies$ = store.pipe(select('movie')); }
+  constructor(private store: Store<any>) { 
+    this.movies$ = store.select(getMoviesState).pipe(map(state => state.movies))
+    this.totalCount$ = store.select(getMoviesState).pipe(map(state => state.totalCount))
+    this.isLoading$ = store.select(getMoviesState).pipe(map(state => state.isLoading))
+  }
 
   ngOnInit() {
     this.store.dispatch(new LoadAllAction());

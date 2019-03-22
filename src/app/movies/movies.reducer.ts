@@ -1,16 +1,30 @@
-import { Action } from '@ngrx/store';
 import { ActionTypes, ActionUnion } from './movies.actions';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
+
+export interface Movie {
+    id: number,
+    name: string,
+    description: string
+}
+
+
+
 
 export interface State {
-    movies: any[];
+    movies: Movie[];
+    selectedMovieId: number;
     totalCount: number;
     isLoading: boolean;
 }
 export const initialState: State = {
     movies: [],
     totalCount: 0,
+    selectedMovieId:null,
     isLoading: true
 };
+
+export const getMoviesState = createFeatureSelector<State>('movie');
+
 export function reducer (state = initialState, action: ActionUnion): State {
     switch (action.type) {
         case ActionTypes.LOAD_ALL:
