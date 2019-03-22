@@ -1,0 +1,6 @@
+<h1>Scoreboard</h1>
+Home:{{(scoreboard$ | async).home}} <br>
+Away:{{(scoreboard$ | async).away}} <br>
+<button (click)="goalHome()">Goal Home!</button>
+<button (click)="goalAway()">Goal Away!</button>
+<button (click)="reset()">Reset Scoreboard</button>
