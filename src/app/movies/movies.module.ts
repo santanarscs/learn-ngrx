@@ -5,12 +5,13 @@ import { reducer as movieReducer } from './movies.reducer';
 import { MovieComponent } from './movies/movie/movie.component';
 import { EffectsModule } from '@ngrx/effects';
 import { MovieEffects } from './movie.effects';
-import { MoviesService } from './shared/movies.service';
+import { FormsModule } from '@angular/forms'
 @NgModule({
   declarations: [MovieComponent],
   exports: [MovieComponent],
   imports: [
     CommonModule,
+    FormsModule,
     StoreModule.forFeature('movie', movieReducer),
     EffectsModule.forFeature([MovieEffects])
   ],

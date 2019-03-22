@@ -22,6 +22,17 @@ export function reducer (state = initialState, action: ActionUnion): State {
                 movies: action.payload.movies,
                 isLoading: false
             };
+        case ActionTypes.CREATE_SUCCESS:
+            return { 
+                ...state,
+                movies: [action.payload, ...state.movies],
+                totalCount: state.totalCount + 1
+            }
+        case ActionTypes.REMOVE_SUCCESS:
+        return {
+            ...state,
+            totalCount: state.totalCount - 1
+        }
         default:
         return state;
     }

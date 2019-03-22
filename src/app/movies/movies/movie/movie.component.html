@@ -1,7 +1,13 @@
+<h2>Movie Form</h2>
+<form action="">
+  <input type="text" placeholder="Title" [(ngModel)]="movie.title" name="title">
+  <input type="text" placeholder="Description" [(ngModel)]="movie.description" name="description">
+  <button type="button" (click)="addMovie()">Add movie</button>
+</form>
 <h2>Movies Data</h2>
 <ul>
-  <li *ngFor="let movie of (movies$ | async).movies">
-    {{movie.title}} ( {{movie.description}} )
+  <li *ngFor="let movie of (movies$ | async).movies" style="margin:10px;">
+    {{movie.title}} ( {{movie.description}} )   <a (click)="removeMovie(movie.id)" style="cursor: pointer; background-color:#c0392b; color: white; border-radius:3px; padding: 5px; font-size: 0.75em">Remove</a>
   </li>
 </ul>
 <span>Total movies: {{(movies$ | async).totalCount}}</span>
