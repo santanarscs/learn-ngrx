@@ -1,0 +1,7 @@
+<h2>Disciplinas data</h2>
+<ul>
+  <li *ngFor="let disciplina of disciplinas$ | async" style="margin:10px;">
+    {{disciplina.name}} ( {{disciplina.description}})
+  </li>
+</ul>
+Total Disciplinas: {{totalCount$ | async}}

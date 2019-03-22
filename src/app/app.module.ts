@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 import { MoviesModule } from './movies/movies.module';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { DisciplinasModule } from './disciplinas/disciplinas.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forRoot({count: counterReducer}),
     ScoreboardModule,
     MoviesModule,
+    DisciplinasModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

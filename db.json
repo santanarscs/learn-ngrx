@@ -24,6 +24,28 @@
       "title": "Filme 5",
       "description": "Descrição Filme 5",
       "id": 5
+    },
+    {
+      "title": "Filme 6",
+      "description": "Descrição Filme 6",
+      "id": 6
+    }
+  ],
+  "disciplinas": [
+    {
+      "id": 1,
+      "name": "Disciplina 001",
+      "description": "Descrição Disciplina 001"
+    },
+    {
+      "id": 2,
+      "name": "Disciplina 002",
+      "description": "Descrição Disciplina 002"
+    },
+    {
+      "id": 3,
+      "name": "Disciplina 003",
+      "description": "Descrição Disciplina 003"
     }
   ]
 }
