@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getDisciplinasState } from '../disciplina.reducer';
 import { map } from 'rxjs/operators';
 import { LoadAllAction } from '../disciplina.actions';
+import { selectAllDisciplinas, selectTotalDisciplina } from '../disciplina.reducer';
 
 @Component({
   selector: 'app-disciplina-container',
@@ -16,9 +16,8 @@ export class DisciplinaContainerComponent implements OnInit {
   totalCount$: Observable<any>;
   isLoading$: Observable<any>;
   constructor(private store: Store<any>) {  
-    this.disciplinas$ = store.select(getDisciplinasState).pipe(map(state => state.disciplinas))
-    this.totalCount$ = store.select(getDisciplinasState).pipe(map(state => state.totalCount))
-    this.isLoading$ = store.select(getDisciplinasState).pipe(map(state => state.isLoading))
+    this.disciplinas$ = store.pipe(select(selectAllDisciplinas))
+    this.totalCount$ = store.pipe(select(selectTotalDisciplina))
   }
 
   ngOnInit() {
