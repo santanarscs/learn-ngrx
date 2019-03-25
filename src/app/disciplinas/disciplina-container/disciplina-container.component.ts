@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LoadAllAction } from '../disciplina.actions';
+import { LoadAllAction, CreateAction } from '../disciplina.actions';
 import { selectAllDisciplinas, selectTotalDisciplina } from '../disciplina.reducer';
 
 @Component({
@@ -15,6 +15,10 @@ export class DisciplinaContainerComponent implements OnInit {
   disciplinas$: Observable<any>;
   totalCount$: Observable<any>;
   isLoading$: Observable<any>;
+  disciplina = {
+    name: '',
+    description: ''
+  };
   constructor(private store: Store<any>) {  
     this.disciplinas$ = store.pipe(select(selectAllDisciplinas))
     this.totalCount$ = store.pipe(select(selectTotalDisciplina))
@@ -22,6 +26,11 @@ export class DisciplinaContainerComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new LoadAllAction())
+  }
+  onSubmit() {
+    if(this.disciplina.name != ''){
+      this.store.dispatch(new CreateAction(this.disciplina))
+    }
   }
 
 }

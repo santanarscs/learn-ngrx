@@ -1,7 +1,6 @@
 import { ActionTypes, ActionUnion } from './disciplina.actions';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { UrlSerializer } from '@angular/router';
 export interface Disciplina {
     id: number,
     name: string,
@@ -16,13 +15,11 @@ export interface State extends EntityState<Disciplina> {
 export function selectId(d: Disciplina): string {
     return d.id.toString();
 }
-export function sortByName(a: Disciplina, b: Disciplina): number {
-    return a.name.localeCompare(b.name);
-}
+
 
 export const adapter: EntityAdapter<Disciplina> = createEntityAdapter<Disciplina>({
     selectId: selectId,
-    sortComparer: sortByName
+    sortComparer: false
 });
 
 export const initialState: State = adapter.getInitialState({
@@ -46,7 +43,7 @@ export function reducer (state = initialState, action: ActionUnion): State {
         case ActionTypes.CREATE_SUCCESS:
             return { 
                 ...state,
-                // disciplinas: [action.payload, ...state.disciplinas],
+                ...adapter.addOne(action.payload, state),
                 totalCount: state.totalCount + 1
             }
         case ActionTypes.REMOVE_SUCCESS:

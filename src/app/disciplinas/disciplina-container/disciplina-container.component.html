@@ -1,3 +1,7 @@
+<h2>Disciplina Form</h2>
+<input type="text" name='name' [(ngModel)]="disciplina.name" id="disciplinaName" placeholder="Name Disciplina">
+<input type="text" name='description' [(ngModel)]="disciplina.description" id="disciplinaTitle" placeholder="Description Disciplina">
+<button type="button" (click)="onSubmit()">Add Disciplina</button>
 <h2>Disciplinas data</h2>
 <ul>
   <li *ngFor="let disciplina of disciplinas$ | async" style="margin:10px;">
