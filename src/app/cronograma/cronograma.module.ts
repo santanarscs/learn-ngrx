@@ -6,8 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducer as cronogramaReducer} from './store/cronograma.reducer';
 import { reducer as aulaReducer } from './store/aula.reducer';
 import { AulaEffects } from './store/aula.effects';
-import { CronogramaEffects } from './store/cronograma.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { CronogramaEffects } from './store/cronograma.effects';
 @NgModule({
   declarations: [CronogramaContainerComponent],
   exports: [CronogramaContainerComponent],

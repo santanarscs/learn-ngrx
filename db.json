@@ -1,5 +1,6 @@
 {
-  "movies": [{
+  "movies": [
+    {
       "title": "Filme 1",
       "description": "Descrição filme 1",
       "id": 1
@@ -23,14 +24,10 @@
       "title": "Filme 5",
       "description": "Descrição Filme 5",
       "id": 5
-    },
-    {
-      "title": "Filme 6",
-      "description": "Descrição Filme 6",
-      "id": 6
     }
   ],
-  "disciplinas": [{
+  "disciplinas": [
+    {
       "id": 1,
       "name": "Disciplina 001",
       "description": "Descrição Disciplina 001"
@@ -56,7 +53,8 @@
       "id": 5
     }
   ],
-  "cronogramas": [{
+  "cronogramas": [
+    {
       "id": 1,
       "nome": "Cronograma 001",
       "descricao": "Descrição Cronograma 0001"
@@ -72,20 +70,36 @@
       "descricao": "Descrição Cronograma 0003"
     }
   ],
-  "aulas": [{
+  "aulas": [
+    {
       "id": 1,
       "nome": "Aula 00001",
-      "descricao": "Descrição Aula 00001"
+      "descricao": "Descrição Aula 00001",
+      "cronogramaId": 1
     },
     {
       "id": 2,
       "nome": "Aula 00002",
-      "descricao": "Descrição Aula 00002"
+      "descricao": "Descrição Aula 00002",
+      "cronogramaId": 1
     },
     {
       "id": 3,
       "nome": "Aula 00003",
-      "descricao": "Descrição Aula 00003"
+      "descricao": "Descrição Aula 00003",
+      "cronogramaId": 1
+    },
+    {
+      "nome": "3213",
+      "descricao": "32123",
+      "cronogramaId": 3,
+      "id": 4
+    },
+    {
+      "nome": "Aula 001",
+      "descricao": "Aula 001 do Cronograma 002",
+      "cronogramaId": 2,
+      "id": 5
     }
   ]
 }

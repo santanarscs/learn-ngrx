@@ -1,6 +1,7 @@
 import { EntityAdapter, createEntityAdapter, EntityState } from '@ngrx/entity';
 import { ActionUnion, ActionTypes } from './aula.actions';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 export interface Aula {
     id: number;
@@ -31,9 +32,13 @@ export function reducer(state = initialState, action: ActionUnion): State {
     switch (action.type) {
         case ActionTypes.LOAD_SUCCESS:
             return {
-                ...adapter.addAll(action.payload.data, state),
+                ...adapter.addAll(action.payload, state),
                 isLoading: false
             };
+        case ActionTypes.SAVE_SUCCESS:
+            return {
+                ...adapter.addOne(action.payload, state)
+            }
         default:
             return state;
     }

@@ -13,7 +13,7 @@ export class CronogramaEffects {
     loadAll$ = this.actions$.pipe(
         ofType(ActionTypes.LOAD),
         switchMap(() =>
-            this.api.getAllAula()
+            this.api.getAllCronograma()
                 .pipe(
                     map(res => new LoadSuccessAction(res))
                 )

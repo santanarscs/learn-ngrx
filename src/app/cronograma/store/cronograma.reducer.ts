@@ -16,9 +16,9 @@ export function selectId(c: Cronograma) {
     return c.id.toString();
 }
 
-export const adapter:  EntityAdapter<Cronograma> = createEntityAdapter<Cronograma>({
-selectId: selectId,
-sortComparer: false
+export const adapter: EntityAdapter<Cronograma> = createEntityAdapter<Cronograma>({
+    selectId: selectId,
+    sortComparer: false
 });
 
 export const initialState: State = adapter.getInitialState({
@@ -30,11 +30,16 @@ export function reducer(state = initialState, action: ActionUnion): State {
     switch (action.type) {
         case ActionTypes.LOAD_SUCCESS:
             return {
-                ...adapter.addAll(action.payload.data, state),
+                ...adapter.addAll(action.payload, state),
                 isLoading: false
             };
-            default:
-                return state;
+        case ActionTypes.SET_CRONOGRAMA_ID:
+            return {
+                ...state,
+                selectedId: action.payload
+            };
+        default:
+            return state;
     }
 }
 
@@ -43,8 +48,7 @@ export function reducer(state = initialState, action: ActionUnion): State {
 
 export const getCronogramaId = (state: State) => state.selectedId;
 
-
-export const{
+export const {
     selectIds,
     selectEntities,
     selectAll,
@@ -61,11 +65,15 @@ export const selectCurrentCronogramaId = createSelector(
     selectCronogramaState,
     getCronogramaId
 );
+export const selectCronogramaEntities = createSelector(
+    selectCronogramaState,
+    selectAllCronograma
+)
 export const selectCurrentCronograma = createSelector(
-    selectAllCronograma,
+    selectCronogramaEntities,
     selectCurrentCronogramaId,
-    (entities, cronogramaId) => entities[cronogramaId]
-);
+    (cronogramaEntities, cronogramaId) =>  cronogramaEntities[cronogramaId - 1]
+  );
 export const selectTotalCronograma = createSelector(
     selectCronogramaState,
     selectTotal

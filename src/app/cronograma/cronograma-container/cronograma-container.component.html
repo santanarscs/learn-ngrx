@@ -1,3 +1,26 @@
 <p>
   cronograma-container works!
 </p>
+<div style="display:flex">
+  <ul>
+    <li *ngFor="let item of cronogramas$ | async" style="margin:10px 0">
+      {{item.nome}} ( {{item.descricao}} )
+      <a (click)="selectCronograma(item.id)"
+        style="cursor:pointer; border-radius: 3px;font-size: 0.75em; padding:5px; background-color:#27ae60; margin: 0 auto; color:white">Select</a>
+    </li>
+  </ul>
+  <ul>
+    <li *ngFor="let item of aulas$ | async" style="margin: 10px 0">{{item.nome}} ( {{item.descricao}} )</li>
+  </ul>
+</div>
+
+<div *ngIf="cronogramaSelect$ | async">
+  <p>Cronograma Selecionado: {{ (cronogramaSelect$ | async).nome }}, adicione aulas a este cronograma:</p>
+  <div style="margin: 0 auto" >
+    <input type="text" name="nome" placeholder="nome" [(ngModel)]="aula.nome">
+    <input type="text" name="descricao" placeholder="descricao" [(ngModel)]="aula.descricao">
+    <a (click)="saveAula()"
+      style="padding: 5px; border:none; cursor: pointer; border-radius: 3px; font-size: 0.75em; background-color: #3498db; color: white;">
+      ADD</a>
+  </div>
+</div>
