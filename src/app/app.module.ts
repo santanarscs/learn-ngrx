@@ -13,6 +13,7 @@ import { MoviesModule } from './movies/movies.module';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { DisciplinasModule } from './disciplinas/disciplinas.module';
+import { CronogramaModule } from './cronograma/cronograma.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { DisciplinasModule } from './disciplinas/disciplinas.module';
     ScoreboardModule,
     MoviesModule,
     DisciplinasModule,
+    CronogramaModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

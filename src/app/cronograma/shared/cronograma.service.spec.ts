@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DisciplinaService } from './disciplina.service';
+import { CronogramaService } from './cronograma.service';
 
-describe('DisciplinaService', () => {
+describe('CronogramaService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DisciplinaService = TestBed.get(DisciplinaService);
+    const service: CronogramaService = TestBed.get(CronogramaService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,6 +1,5 @@
 {
-  "movies": [
-    {
+  "movies": [{
       "title": "Filme 1",
       "description": "Descrição filme 1",
       "id": 1
@@ -31,8 +30,7 @@
       "id": 6
     }
   ],
-  "disciplinas": [
-    {
+  "disciplinas": [{
       "id": 1,
       "name": "Disciplina 001",
       "description": "Descrição Disciplina 001"
@@ -56,6 +54,38 @@
       "name": "Disciplina 005",
       "description": "Descrição disciplina 005",
       "id": 5
+    }
+  ],
+  "cronogramas": [{
+      "id": 1,
+      "nome": "Cronograma 001",
+      "descricao": "Descrição Cronograma 0001"
+    },
+    {
+      "id": 2,
+      "nome": "Cronograma 002",
+      "descricao": "Descrição Cronograma 0002"
+    },
+    {
+      "id": 3,
+      "nome": "Cronograma 003",
+      "descricao": "Descrição Cronograma 0003"
+    }
+  ],
+  "aulas": [{
+      "id": 1,
+      "nome": "Aula 00001",
+      "descricao": "Descrição Aula 00001"
+    },
+    {
+      "id": 2,
+      "nome": "Aula 00002",
+      "descricao": "Descrição Aula 00002"
+    },
+    {
+      "id": 3,
+      "nome": "Aula 00003",
+      "descricao": "Descrição Aula 00003"
     }
   ]
 }
